@@ -85,6 +85,100 @@ Agora monte a mudança de rota no clique dos botões do cabeçalho:
 
 ### Resolução
 
+-   Em `src` criei uma pasta chamada `Components` com um arquivo `Header.js`. Em `Header.js` criei os botões para a troca de rotas;
+-   Dentro de `routes` criei um arquivo chamado `coordinator.js`, dentro desse arquivo estão as funções responsáveis pelas mudanças de rotas;
+-   Dentro das funções de `routes`, cada função precisa receber como **primeiro parâmetro** uma outra função, e esta outra função recebe um `path`, esse `path` é o caminho para o qual a função vai me levar;
+-   Quando `Header.js` importar as funções de `coordinator.js`, ele irá passar como argumento o hook `useNavigate`;
+-   O `useNavigate` serve para realizar a navegação, sem a necessidade de mudança manual no link da página, pois dentro dele é contido um `path` que mostra esse caminho;
+-   Um observação importante é que o `useNavigate` só pode ser invocado **dentro de um componente**, por isso ele é invocado em `Header.js` e passado como **primeiro** argumento das funções importadas de `Header.js`;
+-   Resumindo o fluxo da lógica:
+    -   `Header.js` é chamado nas páginas onde desejo ter os botões para a troca de rotas, nesse casso em:
+        -   `HomePage.js`;
+        -   `ProfilePage.js`;
+    -   `coordinator.js` exporta as funções de mudanças de rotas;
+    -   `Header.js` importa as funções de `coordinator.js` usando-as no `OnClick` dos botões, passando como argumento de suas funções o hook `useNavigate`;
+-   Dessa forma temos os seguintes códigos:
+
+    -   `coordinator.js`:
+
+        ```
+        export const goToHome = (navegate) => {
+            navegate('/');
+        };
+
+        export const goToProfile = (navegate, name) => {
+            navegate(`/profile/${name}`);
+        };
+        ```
+
+    -   `Header.js`:
+
+        ```
+        import { useNavigate } from 'react-router-dom';
+        import { goToHome, goToProfile } from '../routes/coordinator';
+
+        function Header() {
+            const navegate = useNavigate();
+
+            return (
+                <div>
+                    <button
+                        onClick={() => {
+                            goToHome(navegate);
+                        }}
+                    >
+                        Ir para página inicial
+                    </button>
+                    <button
+                        onClick={() => {
+                            goToProfile(navegate, 'easley');
+                        }}
+                    >
+                        Ir para página de perfil
+                    </button>
+                </div>
+            );
+        }
+
+        export default Header;
+
+        ```
+
+    -   `HomePage.js`:
+
+        ```
+        import Header from "../Components/Header";
+
+        function HomePage() {
+            return (
+                <section>
+                    <h1>Página inicial</h1>
+                    <Header/>
+                </section>
+            );
+        }
+
+        export default HomePage;
+        ```
+
+    -   `ProfilePage.js`:
+
+        ```
+        import Header from '../Components/Header';
+
+        function ProfilePage() {
+            return (
+                <section>
+                    <h1>Página de perfil</h1>
+                    <Header />
+                </section>
+            );
+        }
+
+        export default ProfilePage;
+
+        ```
+
 ## 4 Exercício 3
 
 ### Enunciado
