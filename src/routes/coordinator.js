@@ -9,3 +9,7 @@ export const goToProfile = (navegate, name) => {
 export const goToBiscoito = (navegate) => {
     navegate('/biscoito');
 };
+
+export const goToProducts = (navegate, id) => {
+    navegate(`/product/${id}`);
+};

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { goToBiscoito, goToHome, goToProfile } from '../routes/coordinator';
+import { goToBiscoito, goToHome, goToProducts, goToProfile } from '../routes/coordinator';
 
 function Header() {
     const navegate = useNavigate();
@@ -26,6 +26,13 @@ function Header() {
                 }}
             >
                 Ir para página de biscoito
+            </button>
+            <button
+                onClick={() => {
+                    goToProducts(navegate, 123);
+                }}
+            >
+                Ir para página de produtos
             </button>
         </div>
     );

@@ -7,7 +7,7 @@
 -   [3. Exercício 2](#3-exercício-2)
 -   [4. Extra](#4-extra)
 -   [5. Exercício 3](#5-exercício-3)
--   [6. Informações úteis sobre o assunto](#6-informações-úteis-sobre-o-assunto)
+-   [6. Resultado Final](#6-resultado-final)
 
 ## 1. Configurações Iniciais
 
@@ -192,9 +192,15 @@ Isso não faz parte do exercício apenas quis criar uma página chamada biscoito
 
     ```
     import React from 'react';
+    import Header from '../Components/Header';
 
     const BiscoitoPage = () => {
-        return <div>Página de Biscoito</div>;
+        return (
+            <>
+                <Header />
+                <h1>Página de biscoito</h1>
+            </>
+        );
     };
 
     export default BiscoitoPage;
@@ -256,14 +262,6 @@ Isso não faz parte do exercício apenas quis criar uma página chamada biscoito
     export default BiscoitoPage;
     ```
 
-7. O resultado final foi esse:
-
-    ![Alt text](image.png)
-
-    ![Alt text](image-1.png)
-
-    ![Alt text](image-3.png)
-
 ## 5 Exercício 3
 
 ### Enunciado
@@ -276,6 +274,73 @@ Crie uma nova página de produto específico por id **“/product/:id”**
 
 ### Resolução
 
-## 6 Informações úteis sobre o assunto
+1. Dentro de `pages` criei um arquivo chamado `ProductsPage.js` com o seguinte código:
 
-[Router (documentação)](https://reactrouter.com/en/main)
+    ```
+    import React from 'react';
+    import Header from '../Components/Header';
+
+    const ProductsPage = () => {
+        return (
+            <>
+                <Header />
+                <h1>Página de produtos</h1>
+            </>
+        );
+    };
+
+    export default ProductsPage;
+
+    ```
+
+2. Em `Router.js`, acrescente mais um componente `Route` para essa rota, e importei o componente para usar em `element`:
+
+    ```
+    (..)
+    import ProductsPage from '../pages/ProductsPage';
+    (..)
+    <Route path="/product/:id" element={<ProductsPage />} />
+    (..)
+    ```
+
+3. Testei mudando o link manualmente:
+
+    ```
+    http://localhost:3000/product/:id
+    ```
+
+4. Acrescentei a função de mudar para essa rota no arquivo `coordinator.js`:
+    ```
+    export const goToProducts = (navegate, id) => {
+        navegate(`/product/${id}`);
+    };
+    ```
+5. Importei a função em `Header.js`, criei um botão para ela e chamei a função importada no Onclick do novo botão:
+
+    ```
+    (...)
+    import { goToBiscoito, goToHome, goToProducts, goToProfile } from '../routes/coordinator';
+    (...)
+    <button
+        onClick={() => {
+            goToProducts(navegate, 123);
+        }}
+    >
+        Ir para página de produtos
+    </button>
+    (...)
+    ```
+
+## 6 Resultado final
+
+-   Clicando em _página inicial_:
+    ![Alt text](image.png)
+
+-   Clicando em _página de perfil_:
+    ![Alt text](image-1.png)
+
+-   Clicando em _página de bicoito_:
+    ![Alt text](image-2.png)
+
+-   Clicando em _página de produtos_:
+    ![Alt text](image-3.png)
