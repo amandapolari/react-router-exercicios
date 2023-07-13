@@ -1,46 +1,56 @@
 # React Router - Exercício
 
-Caso não lembre como funciona o processo de entrega, clique [**aqui**](https://github.com/labenuexercicios/instrucoes-entrega)
+## Índice
 
-## Como eu vou executar os exercícios?
+-   [1. Configurações Iniciais](#1-configurações-iniciais)
+-   [2. Exercício 1](#2-exercício-1)
+-   [3. Exercício 2](#3-exercício-2)
+-   [4. Exercício 3](#4-exercício-3)
+-   [5. Informações úteis sobre o assunto](#5-informações-úteis-sobre-o-assunto)
 
-Vamos utilizar a biblioteca **react Router**.
+## 1. Configurações Iniciais
 
-Para executar este exercício, você pode criar uma nova aplicação React, como foi visto na aula passada, ou utilizar o link abaixo para ir ao template no **CodeSandbox**. Este template para exatamente onde o exercício da última aula acaba.
+-   Como o react router é uma biblioteca, precisamos instalá-la. Fazemos isso executando o seguinte comando na raiz do projeto:
 
-[**Template do CodeSandbox**](https://codesandbox.io/s/exercicio-react-router-fz3xk0)
+    ```
+    npm install react-router-dom
+    ```
 
-Caso queira criar uma nova aplicação React, basta copiar os conteúdos deste repositório e colar dentro da pasta do seu projeto criado.
+## 2 Exercício 1
 
+### Enunciado
 
-
-Você recebeu este projeto em andamento. Sua primeira tarefa é ler o código e procurar entender em qual parte dele precisará aplicar as rotas.
-
-
-# Exercício 1
 Crie um site com roteamento de 3 páginas, utilizando o React Router:
-- Página inicial
-- Página de perfil
-- Página de erro
 
+-   Página inicial
+-   Página de perfil
+-   Página de erro
 
-# Exercício 2
+### Resolução
+
+## 3 Exercício 2
+
+### Enunciado
+
 Agora monte a mudança de rota no clique dos botões do cabeçalho:
 
-- Botão de ir para página inicial
-- Botão de ir para página de perfil
+-   Botão de ir para página inicial
+-   Botão de ir para página de perfil
 
+### Resolução
 
+## 4 Exercício 3
 
-# Exercício 3
+### Enunciado
+
 Agora configure uma rota que utiliza path param:
 
 Crie uma nova página de produto específico por id **“/product/:id”**
 
 **Não se preocupe em aplicar navegação de rota nela**
 
+### Resolução
 
+## 5 Informações úteis sobre o assunto
 
-
-## Informações úteis sobre o assunto
 1. [Router (documentação)](https://reactrouter.com/en/main)
