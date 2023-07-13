@@ -28,6 +28,52 @@ Crie um site com roteamento de 3 páginas, utilizando o React Router:
 
 ### Resolução
 
+-   Dentro da pasta `src` criei uma pasta `routes` e dentro de `routes` criei um arquivo chamado `Router.js`, nesse arquivo criei as rotas com os componentes importados: `<BrowserRouter></BrowserRouter>`, `<Routes></Routes>` e <Route/>. Cada `Route` recebe um `path` e um `element` que corresponde à qual página será escolhida para ser exibida diante do path apresentado.
+
+    -   Código de `Router.js`:
+
+        ```
+        import React from 'react';
+        import { BrowserRouter, Route, Routes } from 'react-router-dom';
+        import HomePage from '../pages/HomePage';
+        import ProfilePage from '../pages/ProfilePage';
+        import ErrorPage from '../pages/ErrorPage';
+
+        const Router = () => {
+            return (
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/profile/:name" element={<ProfilePage />} />
+                        <Route path="*" element={<ErrorPage />} />
+                    </Routes>
+                </BrowserRouter>
+            );
+        };
+
+        export default Router;
+
+        ```
+
+-   Além disso, é preciso chamar o arquivo `Router,js` em `App.js` para que ele possa ser renderizado conforme solicitado. Lembrando que até esse momento mudamos a url manualmente para ver a mudança de rotas acontecendo.
+
+    -   Código de `App.js`:
+
+        ```
+        import Router from './routes/Router';
+
+        function App() {
+            return (
+                <>
+                    Exercicio de Router
+                    <Router />
+                </>
+            );
+        }
+
+        export default App;
+        ```
+
 ## 3 Exercício 2
 
 ### Enunciado
