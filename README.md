@@ -10,7 +10,7 @@
 
 ## 1. Configurações Iniciais
 
--   Como o react router é uma biblioteca, precisamos instalá-la. Fazemos isso executando o seguinte comando na raiz do projeto:
+-   Instalei o React Router:
 
     ```
     npm install react-router-dom
@@ -191,6 +191,82 @@ Crie uma nova página de produto específico por id **“/product/:id”**
 
 ### Resolução
 
+1. Dentro de `pages` criei um arquivo chamado `BiscoitoPage.js` com o seguinte código:
+
+    ```
+    import React from 'react';
+
+    const BiscoitoPage = () => {
+        return <div>Página de Biscoito</div>;
+    };
+
+    export default BiscoitoPage;
+    ```
+
+2. Em `Router.js`, acrescente mais um componente `Route` para essa rota, e importei o componente para usar em `element`:
+
+    ```
+    (..)
+    import BiscoitoPage from '../pages/BiscoitoPage';
+    (..)
+    <Route path="/biscoito" element={<BiscoitoPage />} />
+    (..)
+    ```
+
+3. Testei mudando o link manualmente:
+
+    ```
+    http://localhost:3000/biscoito
+    ```
+
+4. Acrescentei a função de mudar para essa rota no arquivo `coordinator.js`:
+    ```
+    export const goToBiscoito = (navegate) => {
+        navegate('/biscoito');
+    };
+    ```
+5. Importei a função em `Header.js`, criei um botão para ela e chamei a função importada no Onclick do novo botão:
+
+    ```
+    (...)
+    import { goToBiscoito, goToHome, goToProfile } from '../routes/coordinator';
+    (...)
+    <button
+        onClick={() => {
+            goToBiscoito(navegate);
+        }}
+    >
+        Ir para página de biscoito
+    </button>
+    (...)
+    ```
+
+6. Chamei o `Header.js` dentro da página `BiscoitoPage.js`:
+
+    ```
+    import React from 'react';
+    import Header from '../Components/Header';
+
+    const BiscoitoPage = () => {
+        return (
+            <>
+                <Header />
+                <h1>Página de Biscoito</h1>
+            </>
+        );
+    };
+
+    export default BiscoitoPage;
+    ```
+
+7. O resultado final foi esse:
+
+    ![Alt text](image.png)
+
+    ![Alt text](image-1.png)
+
+    ![Alt text](image-3.png)
+
 ## 5 Informações úteis sobre o assunto
 
-1. [Router (documentação)](https://reactrouter.com/en/main)
+[Router (documentação)](https://reactrouter.com/en/main)

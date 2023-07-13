@@ -5,3 +5,7 @@ export const goToHome = (navegate) => {
 export const goToProfile = (navegate, name) => {
     navegate(`/profile/${name}`);
 };
+
+export const goToBiscoito = (navegate) => {
+    navegate('/biscoito');
+};

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { goToHome, goToProfile } from '../routes/coordinator';
+import { goToBiscoito, goToHome, goToProfile } from '../routes/coordinator';
 
 function Header() {
     const navegate = useNavigate();
@@ -19,6 +19,13 @@ function Header() {
                 }}
             >
                 Ir para página de perfil
+            </button>
+            <button
+                onClick={() => {
+                    goToBiscoito(navegate);
+                }}
+            >
+                Ir para página de biscoito
             </button>
         </div>
     );
