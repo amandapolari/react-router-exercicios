@@ -5,8 +5,9 @@
 -   [1. Configurações Iniciais](#1-configurações-iniciais)
 -   [2. Exercício 1](#2-exercício-1)
 -   [3. Exercício 2](#3-exercício-2)
--   [4. Exercício 3](#4-exercício-3)
--   [5. Informações úteis sobre o assunto](#5-informações-úteis-sobre-o-assunto)
+-   [4. Extra](#4-extra)
+-   [5. Exercício 3](#5-exercício-3)
+-   [6. Informações úteis sobre o assunto](#6-informações-úteis-sobre-o-assunto)
 
 ## 1. Configurações Iniciais
 
@@ -179,15 +180,11 @@ Agora monte a mudança de rota no clique dos botões do cabeçalho:
 
         ```
 
-## 4 Exercício 3
+## 4 Extra
 
 ### Enunciado
 
-Agora configure uma rota que utiliza path param:
-
-Crie uma nova página de produto específico por id **“/product/:id”**
-
-**Não se preocupe em aplicar navegação de rota nela**
+Isso não faz parte do exercício apenas quis criar uma página chamada biscoito para revisar os passos anteriores
 
 ### Resolução
 
@@ -267,6 +264,18 @@ Crie uma nova página de produto específico por id **“/product/:id”**
 
     ![Alt text](image-3.png)
 
-## 5 Informações úteis sobre o assunto
+## 5 Exercício 3
+
+### Enunciado
+
+Agora configure uma rota que utiliza path param:
+
+Crie uma nova página de produto específico por id **“/product/:id”**
+
+**Não se preocupe em aplicar navegação de rota nela**
+
+### Resolução
+
+## 6 Informações úteis sobre o assunto
 
 [Router (documentação)](https://reactrouter.com/en/main)
