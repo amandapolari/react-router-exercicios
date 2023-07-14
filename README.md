@@ -11,7 +11,7 @@
 
 ## 1. Configurações Iniciais
 
--   Instalei o React Router:
+-   Na raíz do projeto `src`, instalei o React Router:
 
     ```
     npm install react-router-dom
